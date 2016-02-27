@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A54411A1C824163006CE66C /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5441191C824163006CE66C /* pop.framework */; };
 		2ADEB1511C824042003559C4 /* PopSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ADEB1501C824042003559C4 /* PopSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2ADEB1581C824042003559C4 /* PopSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADEB14D1C824042003559C4 /* PopSwift.framework */; };
 		2ADEB15D1C824042003559C4 /* PopSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEB15C1C824042003559C4 /* PopSwiftTests.swift */; };
+		2ADEB16E1C82407E003559C4 /* AnimatableProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEB1691C82407E003559C4 /* AnimatableProperty.swift */; };
+		2ADEB16F1C82407E003559C4 /* BasicAnimationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEB16A1C82407E003559C4 /* BasicAnimationState.swift */; };
+		2ADEB1701C82407E003559C4 /* SpringAnimationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEB16B1C82407E003559C4 /* SpringAnimationState.swift */; };
+		2ADEB1711C82407E003559C4 /* DecayAnimationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEB16C1C82407E003559C4 /* DecayAnimationState.swift */; };
+		2ADEB1721C82407E003559C4 /* TimingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEB16D1C82407E003559C4 /* TimingFunction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +29,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A5441191C824163006CE66C /* pop.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = pop.framework; path = Carthage/Build/iOS/pop.framework; sourceTree = "<group>"; };
 		2ADEB14D1C824042003559C4 /* PopSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PopSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ADEB1501C824042003559C4 /* PopSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopSwift.h; sourceTree = "<group>"; };
 		2ADEB1521C824042003559C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ADEB1571C824042003559C4 /* PopSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ADEB15C1C824042003559C4 /* PopSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopSwiftTests.swift; sourceTree = "<group>"; };
 		2ADEB15E1C824042003559C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2ADEB1691C82407E003559C4 /* AnimatableProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableProperty.swift; sourceTree = "<group>"; };
+		2ADEB16A1C82407E003559C4 /* BasicAnimationState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicAnimationState.swift; sourceTree = "<group>"; };
+		2ADEB16B1C82407E003559C4 /* SpringAnimationState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringAnimationState.swift; sourceTree = "<group>"; };
+		2ADEB16C1C82407E003559C4 /* DecayAnimationState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecayAnimationState.swift; sourceTree = "<group>"; };
+		2ADEB16D1C82407E003559C4 /* TimingFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimingFunction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A54411A1C824163006CE66C /* pop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +66,7 @@
 		2ADEB1431C824041003559C4 = {
 			isa = PBXGroup;
 			children = (
+				2A5441191C824163006CE66C /* pop.framework */,
 				2ADEB14F1C824042003559C4 /* PopSwift */,
 				2ADEB15B1C824042003559C4 /* PopSwiftTests */,
 				2ADEB14E1C824042003559C4 /* Products */,
@@ -73,6 +87,11 @@
 			children = (
 				2ADEB1501C824042003559C4 /* PopSwift.h */,
 				2ADEB1521C824042003559C4 /* Info.plist */,
+				2ADEB1691C82407E003559C4 /* AnimatableProperty.swift */,
+				2ADEB16A1C82407E003559C4 /* BasicAnimationState.swift */,
+				2ADEB16B1C82407E003559C4 /* SpringAnimationState.swift */,
+				2ADEB16C1C82407E003559C4 /* DecayAnimationState.swift */,
+				2ADEB16D1C82407E003559C4 /* TimingFunction.swift */,
 			);
 			path = PopSwift;
 			sourceTree = "<group>";
@@ -194,6 +213,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ADEB1721C82407E003559C4 /* TimingFunction.swift in Sources */,
+				2ADEB16E1C82407E003559C4 /* AnimatableProperty.swift in Sources */,
+				2ADEB16F1C82407E003559C4 /* BasicAnimationState.swift in Sources */,
+				2ADEB1701C82407E003559C4 /* SpringAnimationState.swift in Sources */,
+				2ADEB1711C82407E003559C4 /* DecayAnimationState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,28 +334,41 @@
 		2ADEB1621C824042003559C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PopSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jameslintaylor.PopSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		2ADEB1631C824042003559C4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PopSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jameslintaylor.PopSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -378,6 +415,7 @@
 				2ADEB1631C824042003559C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2ADEB1641C824042003559C4 /* Build configuration list for PBXNativeTarget "PopSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -386,6 +424,7 @@
 				2ADEB1661C824042003559C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
