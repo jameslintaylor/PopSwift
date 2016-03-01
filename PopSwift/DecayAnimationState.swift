@@ -16,19 +16,24 @@ public struct DecayAnimationState {
     public let velocity: CGFloat
     public let originalVelocity: CGFloat
     
+    public let key: String
     public let completed: Bool
 }
 
 // + Equatable
 extension DecayAnimationState: Equatable {}
 public func == (lhs: DecayAnimationState, rhs: DecayAnimationState) -> Bool {
-    return (lhs.velocity == rhs.velocity) && (lhs.originalVelocity == rhs.originalVelocity) && (lhs.completed == rhs.completed)
+    return
+        (lhs.velocity == rhs.velocity) &&
+        (lhs.originalVelocity == rhs.originalVelocity) &&
+        (lhs.key == rhs.key) &&
+        (lhs.completed == rhs.completed)
 }
 
 // + Initializers
 public extension DecayAnimationState {
     
-    init?(animation: POPAnimation, completed: Bool) {
+    init?(animation: POPAnimation, key: String, completed: Bool) {
         
         guard
             let decayAnimation = animation as? POPDecayAnimation,
@@ -38,6 +43,7 @@ public extension DecayAnimationState {
         self.velocity = velocity
         self.originalVelocity = originalVelocity
         
+        self.key = key
         self.completed = completed
     }
 }

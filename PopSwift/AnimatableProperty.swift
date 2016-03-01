@@ -22,8 +22,13 @@ public struct AnimatableProperty<Object: NSObject> {
     public typealias PropertyRead = (Object, inout CGFloat) -> ()
     public typealias PropertyWrite = (Object, CGFloat) -> ()
     
+    // DEFINITELY SHOULD NOT BE USING UNOWNED HERE, ONLY USING BECAUSE THE WEAK
+    // DECLARATION BELOW IS CRASHING IN XCODE 7.3 BETA 4. PLEASE TURN ME BACK TO WEAK.
+    //
+    // private(set) weak var object: Object? *Crashing in Xcode 7.3 Beta 4*
+    //
     /// The object owner of the property.
-    public let object: Object
+    public unowned let object: Object
     
     /// The name associated with the property.
     public var name: String { return property.name }
@@ -33,6 +38,9 @@ public struct AnimatableProperty<Object: NSObject> {
     
     // The backing POPAnimatableProperty object.
     private let property: POPAnimatableProperty
+    
+    // The next identifier to use when automatically generating a new key.
+    private var nextKey: Int = 0
 }
 
 // + Equatable
@@ -72,7 +80,9 @@ public extension AnimatableProperty {
     
     /// Animates the receiver for `duration` to a final value following
     /// a timing function (default is `TimingFunction.Default`)
-    func animateTo(toValue: CGFloat, duration: CFTimeInterval, timingFunction: TimingFunction = .Default, key: String = "", completionBlock: (BasicAnimationState -> ())? = nil) {
+    mutating func animate(toValue toValue: CGFloat, duration: CFTimeInterval, timingFunction: TimingFunction = .Default, completionBlock: (BasicAnimationState -> ())? = nil) {
+        
+        // guard let object = object else { return }
         
         let animation = POPBasicAnimation()
         animation.property = property
@@ -80,22 +90,22 @@ public extension AnimatableProperty {
         animation.duration = duration
         animation.timingFunction = CAMediaTimingFunction(timingFunction)
         
+        // Generate a new key if none supplied
+        let key = generateNewKey()
+        
         // Capture state on completion
-        if let completionBlock = completionBlock {
-            
-            animation.completionBlock = { (animation, completed) in
-                
-                let state = BasicAnimationState(animation: animation, completed: completed)!
-                completionBlock(state)
-            }
+        animation.completionBlock = { (animation, completed) in
+            completionBlock?(BasicAnimationState(animation: animation, key: key, completed: completed)!)
         }
-    
+        
         object.pop_addAnimation(animation, forKey: key)
     }
     
     /// Animates the receiver to a final value based on a spring 
     /// and an initial velocity.
-    func animateTo(toValue: CGFloat, initialVelocity: CGFloat, springBounciness: CGFloat, springSpeed: CGFloat, key: String = "default", completionBlock: (SpringAnimationState -> ())? = nil) {
+    mutating func animate(toValue toValue: CGFloat, initialVelocity: CGFloat = 0, springBounciness: CGFloat = 4, springSpeed: CGFloat = 12, completionBlock: (SpringAnimationState -> ())? = nil) {
+        
+        // guard let object = object else { return }
         
         let animation = POPSpringAnimation()
         animation.property = property
@@ -103,14 +113,12 @@ public extension AnimatableProperty {
         animation.springBounciness = springBounciness
         animation.springSpeed = springSpeed
         
+        // Generate a new key if none supplied
+        let key = generateNewKey()
+        
         // Capture state on completion
-        if let completionBlock = completionBlock {
-            
-            animation.completionBlock = { (animation, completed) in
-             
-                let state = SpringAnimationState(animation: animation, completed: completed)!
-                completionBlock(state)
-            }
+        animation.completionBlock = { (animation, completed) in
+            completionBlock?(SpringAnimationState(animation: animation, key: key, completed: completed)!)
         }
         
         object.pop_addAnimation(animation, forKey: key)
@@ -118,22 +126,38 @@ public extension AnimatableProperty {
     
     /// Animates the receiver by giving it a initial velocity and
     /// letting it decay based on `damping`.
-    func animateWith(initialVelocity: CGFloat, damping: CGFloat = 0.998, key: String = "default", completionBlock: (DecayAnimationState -> ())? = nil) {
+    mutating func animate(initialVelocity initialVelocity: CGFloat, damping: CGFloat = 0.998, completionBlock: (DecayAnimationState -> ())? = nil) {
+        
+        // guard let object = object else { return }
         
         let animation = POPDecayAnimation()
         animation.property = property
         animation.velocity = initialVelocity
         animation.deceleration = damping
         
-        if let completionBlock = completionBlock {
-            
-            animation.completionBlock = { (animation, completed) in
-                
-                let state = DecayAnimationState(animation: animation, completed: completed)!
-                completionBlock(state)
-            }
+        // Generate a new key if none supplied
+        let key = generateNewKey()
+        
+        // Capture state on completion
+        animation.completionBlock = { (animation, completed) in
+            completionBlock?(DecayAnimationState(animation: animation, key: key, completed: completed)!)
         }
         
         object.pop_addAnimation(animation, forKey: key)
+    }
+}
+
+protocol POPAnimationCapturable {
+    init(_ animation: POPAnimation, key: String, completed: Bool)
+}
+
+private extension AnimatableProperty {
+    
+    /// Return a new generated key for the property.
+    ///
+    /// - Important: NOT GREAT 😂
+    mutating func generateNewKey() -> String {
+        defer { nextKey += 1 }
+        return name + "\(nextKey++)"
     }
 }

@@ -17,19 +17,26 @@ public struct SpringAnimationState {
     public let springBounciness: CGFloat
     public let springSpeed: CGFloat
     
+    public let key: String
     public let completed: Bool
 }
 
 // + Equatable
 extension SpringAnimationState: Equatable {}
 public func == (lhs: SpringAnimationState, rhs: SpringAnimationState) -> Bool {
-    return (lhs.completed == rhs.completed) && (lhs.velocity == rhs.velocity) && (lhs.springBounciness == rhs.springBounciness) && (lhs.springSpeed == rhs.springSpeed) && (lhs.completed == rhs.completed)
+    return
+        (lhs.completed == rhs.completed) &&
+        (lhs.velocity == rhs.velocity) &&
+        (lhs.springBounciness == rhs.springBounciness) &&
+        (lhs.springSpeed == rhs.springSpeed) &&
+        (lhs.key == rhs.key) &&
+        (lhs.completed == rhs.completed)
 }
 
 // + Initializers
 public extension SpringAnimationState {
     
-    init?(animation: POPAnimation, completed: Bool) {
+    init?(animation: POPAnimation, key: String, completed: Bool) {
         guard
             let springAnimation = animation as? POPSpringAnimation,
             let velocity = springAnimation.velocity as? CGFloat else { return nil }
@@ -38,6 +45,7 @@ public extension SpringAnimationState {
         self.springBounciness = springAnimation.springBounciness
         self.springSpeed = springAnimation.springSpeed
         
+        self.key = key
         self.completed = completed
     }
 }
