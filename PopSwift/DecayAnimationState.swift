@@ -34,7 +34,7 @@ public func == (lhs: DecayAnimationState, rhs: DecayAnimationState) -> Bool {
 public extension DecayAnimationState {
     
     init?(animation: POPAnimation, key: String, completed: Bool) {
-        
+                
         guard
             let decayAnimation = animation as? POPDecayAnimation,
             let velocity = decayAnimation.velocity as? CGFloat,
