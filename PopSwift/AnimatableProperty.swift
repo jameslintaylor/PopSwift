@@ -80,7 +80,7 @@ public extension AnimatableProperty {
     
     /// Animates the receiver for `duration` to a final value following
     /// a timing function (default is `TimingFunction.Default`)
-    mutating func animate(toValue toValue: CGFloat, duration: CFTimeInterval, timingFunction: TimingFunction = .Default, completionBlock: (BasicAnimationState -> ())? = nil) {
+    mutating func animate(toValue toValue: CGFloat, duration: CFTimeInterval, timingFunction: TimingFunction = .Default, appliedBlock: (BasicAnimationState -> ())? = nil, completionBlock: (BasicAnimationState -> ())? = nil) {
         
         // guard let object = object else { return }
         
@@ -98,12 +98,16 @@ public extension AnimatableProperty {
             completionBlock?(BasicAnimationState(animation: animation, key: key, completed: completed)!)
         }
         
+        animation.animationDidApplyBlock = { animation in
+            appliedBlock?(BasicAnimationState(animation: animation, key: key, completed: false)!)
+        }
+        
         object.pop_addAnimation(animation, forKey: key)
     }
     
     /// Animates the receiver to a final value based on a spring 
     /// and an initial velocity.
-    mutating func animate(toValue toValue: CGFloat, initialVelocity: CGFloat = 0, springBounciness: CGFloat = 4, springSpeed: CGFloat = 12, completionBlock: (SpringAnimationState -> ())? = nil) {
+    mutating func animate(toValue toValue: CGFloat, initialVelocity: CGFloat = 0, springBounciness: CGFloat = 4, springSpeed: CGFloat = 12, appliedBlock: (SpringAnimationState -> ())? = nil, completionBlock: (SpringAnimationState -> ())? = nil) {
         
         // guard let object = object else { return }
         
@@ -120,6 +124,10 @@ public extension AnimatableProperty {
         // Capture state on completion
         animation.completionBlock = { (animation, completed) in
             completionBlock?(SpringAnimationState(animation: animation, key: key, completed: completed)!)
+        }
+        
+        animation.animationDidApplyBlock = { animation in
+            appliedBlock?(SpringAnimationState(animation: animation, key: key, completed: false)!)
         }
         
         object.pop_addAnimation(animation, forKey: key)
@@ -144,7 +152,6 @@ public extension AnimatableProperty {
             completionBlock?(DecayAnimationState(animation: animation, key: key, completed: completed)!)
         }
         
-        // Check if animation in valid range
         animation.animationDidApplyBlock = { animation in
             appliedBlock?(DecayAnimationState(animation: animation, key: key, completed: false)!)
         }

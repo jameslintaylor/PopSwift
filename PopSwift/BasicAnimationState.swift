@@ -14,7 +14,6 @@ import pop
 public struct BasicAnimationState {
     
     public let duration: CFTimeInterval
-    public let timingFunction: TimingFunction
 
     public let key: String
     public let completed: Bool
@@ -25,7 +24,6 @@ extension BasicAnimationState: Equatable {}
 public func == (lhs: BasicAnimationState, rhs: BasicAnimationState) -> Bool {
     return
         (lhs.duration == rhs.duration) &&
-        (lhs.timingFunction == rhs.timingFunction) &&
         (lhs.key == rhs.key) &&
         (lhs.completed == rhs.completed)
 }
@@ -38,7 +36,6 @@ public extension BasicAnimationState {
         guard let basicAnimation = animation as? POPBasicAnimation else { return nil }
         
         self.duration = basicAnimation.duration
-        self.timingFunction = TimingFunction(basicAnimation.timingFunction)
         
         self.key = key
         self.completed = completed
