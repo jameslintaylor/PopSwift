@@ -36,11 +36,11 @@ public extension TimingFunction {
     init(_ timingFunction: CAMediaTimingFunction) {
         
         switch timingFunction.controlPoints {
-        case let controlPoints where controlPoints == (0.25, 0.1, 0.25, 1): self = .Default
-        case let controlPoints where controlPoints == (0, 0, 1, 1): self = .Linear
-        case let controlPoints where controlPoints == (0.42, 0, 1, 1): self = .EaseIn
-        case let controlPoints where controlPoints == (0, 0, 0.58, 1): self = .EaseOut
-        case let controlPoints where controlPoints == (0.42, 0, 0.58, 1): self = .EaseInOut
+        case (0.25, 0.1, 0.25, 1): self = .Default
+        case (0, 0, 1, 1): self = .Linear
+        case (0.42, 0, 1, 1): self = .EaseIn
+        case (0, 0, 0.58, 1): self = .EaseOut
+        case (0.42, 0, 0.58, 1): self = .EaseInOut
         case let (x1, y1, x2, y2): self = .Custom(x1: x1, y1: y1, x2: x2, y2: y2)
         }
     }
@@ -73,9 +73,7 @@ public extension CAMediaTimingFunction {
         getControlPointAtIndex(2, values: &cps[2])
         getControlPointAtIndex(3, values: &cps[3])
         
-        // Build for profiling doesn't like this
-//        let asCGFloats = cps.map(CGFloat.init)
-        let asCGFloats = cps.map({CGFloat($0)})
+        let asCGFloats = cps.map(CGFloat.init)
         return (asCGFloats[0], asCGFloats[1], asCGFloats[2], asCGFloats[3])
     }
 }
