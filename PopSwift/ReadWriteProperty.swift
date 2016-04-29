@@ -15,6 +15,14 @@ import pop
 private typealias POPReadBlock = (AnyObject!, UnsafeMutablePointer<CGFloat>) -> ()
 private typealias POPWriteBlock = (AnyObject!, UnsafePointer<CGFloat>) -> ()
 
+// Need this class to encapsulate read and write access specifiers for 
+// the ReadWriteProperty while keeping the toRead(_:) and toWrite(_:) functions
+// non-mutating and therefore Chainable...
+private class ReadWriteAccess {
+    var read: POPReadBlock = { _ in }
+    var write: POPWriteBlock = { _ in }
+}
+
 /// An structure defining an animatable property of an object.
 public struct ReadWriteProperty<Object: NSObject> {
     
@@ -24,39 +32,29 @@ public struct ReadWriteProperty<Object: NSObject> {
     /// The object owner of the property.
     public unowned let owner: Object
     
-    // The read/write access specifier for the property.
-    private let access: ReadWriteAccess<Object>
-}
-
-public struct ReadWriteAccess<Object: NSObject> {
+    // The access specifier container for the property.
+    private let access = ReadWriteAccess()
     
-    // 🙌
-    public typealias PropertyRead = (Object, inout CGFloat) -> ()
-    public typealias PropertyWrite = (Object, CGFloat) -> ()
-    
-    private var pop_read: POPReadBlock = { _ in }
-    private var pop_write: POPWriteBlock = { _ in }
-    
-    public mutating func read(_ readBlock: PropertyRead) {
-        pop_read = { readBlock($0 as! Object, &$1[0]) }
-    }
-    
-    public mutating func write(_ writeBlock: PropertyWrite) {
-        pop_write = { writeBlock($0 as! Object, $1[0]) }
+    /// Create a new `ReadWriteProperty` for the given owner.
+    public init(in owner: Object) {
+        self.owner = owner
     }
 }
 
 public extension ReadWriteProperty {
     
-    /// Create a new `ReadWriteProperty` for the given owner.
-    init(in owner: Object, readWrite: (inout ReadWriteAccess<Object>) -> ()) {
-        
-        self.owner = owner
-        
-        // Get the read and write blocks from the supplied closure.
-        var access = ReadWriteAccess<Object>()
-        readWrite(&access)
-        self.access = access
+    // 🙌
+    public typealias PropertyRead = (Object, inout CGFloat) -> ()
+    public typealias PropertyWrite = (Object, CGFloat) -> ()
+    
+    func toRead(toRead: PropertyRead) -> ReadWriteProperty<Object> {
+        access.read = { toRead($0 as! Object, &$1[0]) }
+        return self
+    }
+    
+    func toWrite(toWrite: PropertyWrite) -> ReadWriteProperty<Object> {
+        access.write = { toWrite($0 as! Object, $1[0]) }
+        return self
     }
 }
 
@@ -67,8 +65,8 @@ extension ReadWriteProperty: Animatable {
     public var property: POPAnimatableProperty {
         
         return POPAnimatableProperty.propertyWithName("") {
-            $0.readBlock = self.access.pop_read
-            $0.writeBlock = self.access.pop_write
+            $0.readBlock = self.access.read
+            $0.writeBlock = self.access.write
             $0.threshold = 0.01
             } as! POPAnimatableProperty
     }
