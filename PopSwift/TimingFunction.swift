@@ -9,26 +9,13 @@
 import UIKit
 
 public enum TimingFunction {
-    case Default
-    case Linear
-    case EaseIn
-    case EaseOut
-    case EaseInOut
-    case Custom(x1: CGFloat, y1: CGFloat, x2: CGFloat, y2: CGFloat)
-}
-
-// + Equatable
-extension TimingFunction: Equatable {}
-public func == (lhs: TimingFunction, rhs: TimingFunction) -> Bool {
-    switch (lhs, rhs) {
-    case (.Default, .Default): return true
-    case (.Linear, .Linear): return true
-    case (.EaseIn, .EaseIn): return true
-    case (.EaseOut, .EaseOut): return true
-    case (.EaseInOut, .EaseInOut): return true
-    case let (.Custom(lhsControlPoints), .Custom(rhsControlPoints)) where lhsControlPoints == rhsControlPoints: return true
-    default: return false
-    }
+    
+    case cool
+    case linear
+    case easeIn
+    case easeOut
+    case easeInOut
+    case custom(x1: CGFloat, y1: CGFloat, x2: CGFloat, y2: CGFloat)
 }
 
 public extension TimingFunction {
@@ -36,12 +23,12 @@ public extension TimingFunction {
     init(_ timingFunction: CAMediaTimingFunction) {
         
         switch timingFunction.controlPoints {
-        case (0.25, 0.1, 0.25, 1): self = .Default
-        case (0, 0, 1, 1): self = .Linear
-        case (0.42, 0, 1, 1): self = .EaseIn
-        case (0, 0, 0.58, 1): self = .EaseOut
-        case (0.42, 0, 0.58, 1): self = .EaseInOut
-        case let (x1, y1, x2, y2): self = .Custom(x1: x1, y1: y1, x2: x2, y2: y2)
+        case (0.25, 0.1, 0.25, 1): self = .cool
+        case (0, 0, 1, 1): self = .linear
+        case (0.42, 0, 1, 1): self = .easeIn
+        case (0, 0, 0.58, 1): self = .easeOut
+        case (0.42, 0, 0.58, 1): self = .easeInOut
+        case let (x1, y1, x2, y2): self = .custom(x1: x1, y1: y1, x2: x2, y2: y2)
         }
     }
 }
@@ -52,12 +39,12 @@ public extension CAMediaTimingFunction {
         
         // These values thanks to <http://netcetera.org/camtf-playground.html>
         switch timingFunction {
-        case .Default: self.init(controlPoints: 0.25, 0.1, 0.25, 1)
-        case .Linear: self.init(controlPoints: 0, 0, 1, 1)
-        case .EaseIn: self.init(controlPoints: 0.42, 0, 1, 1)
-        case .EaseOut: self.init(controlPoints: 0, 0, 0.58, 1)
-        case .EaseInOut: self.init(controlPoints: 0.42, 0, 0.58, 1)
-        case let .Custom(x1, y1, x2, y2): self.init(controlPoints: Float(x1), Float(y1), Float(x2), Float(y2))
+        case .cool: self.init(controlPoints: 0.25, 0.1, 0.25, 1)
+        case .linear: self.init(controlPoints: 0, 0, 1, 1)
+        case .easeIn: self.init(controlPoints: 0.42, 0, 1, 1)
+        case .easeOut: self.init(controlPoints: 0, 0, 0.58, 1)
+        case .easeInOut: self.init(controlPoints: 0.42, 0, 0.58, 1)
+        case let .custom(x1, y1, x2, y2): self.init(controlPoints: Float(x1), Float(y1), Float(x2), Float(y2))
         }
     }
 }
