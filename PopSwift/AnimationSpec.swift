@@ -12,10 +12,13 @@ import pop
 
 public enum AnimationSpec {
     
+    /// A basic animation spec, following a fixed curve and with a predefined duration.
     case basic(toValue: CGFloat, duration: CFTimeInterval, timingFunction: TimingFunction)
     
+    /// A super awesome springy animation spec with parameters for tweaking behaviour of the spring.
     case spring(toValue: CGFloat, initialVelocity: CGFloat, springBounciness: CGFloat, springSpeed: CGFloat)
     
+    /// A decaying animation spec with an initial velocity parameter as well as a damping parameter for adjusting the speed of decay.
     case decay(initialVelocity: CGFloat, damping: CGFloat)
 }
     
