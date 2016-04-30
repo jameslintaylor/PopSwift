@@ -10,9 +10,9 @@ import Foundation
 
 import pop
 
-/// Mostly a wrapper class around PopAnimation exposing some functions 
+/// Mostly a wrapper around PopAnimation exposing some functions
 /// promoting chaining with trailing closure syntax at the call site.
-public class Animation {
+public struct Animation {
     
     private let popAnimation: POPAnimation
     

@@ -12,8 +12,8 @@ import UIKit
 import pop
 
 // 💩
-private typealias POPReadBlock = (AnyObject!, UnsafeMutablePointer<CGFloat>) -> ()
-private typealias POPWriteBlock = (AnyObject!, UnsafePointer<CGFloat>) -> ()
+private typealias POPRead = (AnyObject!, UnsafeMutablePointer<CGFloat>) -> ()
+private typealias POPWrite = (AnyObject!, UnsafePointer<CGFloat>) -> ()
 
 /// An structure defining an animatable property of an object.
 public struct ReadWriteProperty<Object: NSObject> {
@@ -22,8 +22,8 @@ public struct ReadWriteProperty<Object: NSObject> {
     public unowned let owner: Object
     
     // Read and write access specifiers
-    private var popRead: POPReadBlock = { _ in }
-    private var popWrite: POPWriteBlock = { _ in }
+    private var popRead: POPRead = { _ in }
+    private var popWrite: POPWrite = { _ in }
     
     /// Create a new `ReadWriteProperty` for the given owner.
     public init(in owner: Object) {
