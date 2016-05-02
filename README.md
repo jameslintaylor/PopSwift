@@ -1,4 +1,4 @@
-# PopSwift - *wrapping facebook's pop framework for happy use in Swift* 
+# fizzy (pop)  - *wrapping facebook's pop framework for happy use in Swift* 
 
 [facebook/pop](https://github.com/facebook/pop) is awesome, and it could be even more awesome in Swift. PopSwift is all about making that happen ☺️.
 
@@ -49,7 +49,7 @@ propertyOwner.pop_addAnimation(animation, forKey: "🔑")
 
 ```
 
-#### PopSwift 
+#### fizzy 
 
 ```swift
 
@@ -111,7 +111,7 @@ propertyOwner.pop_addAnimation(animation, forKey: "🔑")
 
 ```
 
-#### PopSwift
+#### fizzy
 
 ```swift
 
@@ -131,7 +131,7 @@ property.newAnimation(.basic(toValue: 1, duration: 1, timingFunction: .easeOut))
 - When defining an animatable property, we get type safety. `ReadWriteProperty<Object: NSObject>` uses Swift's generics to allow us to expose a concrete type rather than `AnyObject!` in the read and write blocks. No more `as!` runtime prayers.
 
 	```swift 
-	// PopSwift
+	// fizzy
 	let property = ReadWriteProperty(in: propertyOwner)
 		.read {  $1 = $0.property }
 		.write { $0.property = $1 }
@@ -140,7 +140,7 @@ property.newAnimation(.basic(toValue: 1, duration: 1, timingFunction: .easeOut))
 	vs
 	
 	```swift
-	// Vanilla pop
+	// pop
 	let animatableProperty = POPAnimatableProperty.propertyWithName("property") { property in
 		property.readBlock = { $1[0] = ($0 as! PropertyOwner).property }
 		property.writeBlock = { ($0 as! PropertyOwner).property = $1[0] }
@@ -150,7 +150,7 @@ property.newAnimation(.basic(toValue: 1, duration: 1, timingFunction: .easeOut))
 - Trailing closure syntax. It's awesome and we should use it right? We believe that
 
 	```swift
-	// PopSwift
+	// fizzy
 	property.newAnimation(.basic(toValue: 1, duration: 1, timingFunction: .easeOut))
 		.onApply { print("property is now \(property)!") }
 		.onComplete { completed in print(completed ? "🐥" : "🐣") }
@@ -160,7 +160,7 @@ property.newAnimation(.basic(toValue: 1, duration: 1, timingFunction: .easeOut))
 	reads better and clearer than 
 
 	```swift
-	// Vanilla pop
+	// pop
 	let animation = POPBasicAnimation(propertyNamed: "property_animation")
 	animation.toValue = 1
 	animation.duration = 1
@@ -179,6 +179,6 @@ property.newAnimation(.basic(toValue: 1, duration: 1, timingFunction: .easeOut))
 Add this to your Cartfile:
 
 ```
-github "jameslintaylor/PopSwift"
+github "jameslintaylor/fizzy"
 ```
 
