@@ -128,6 +128,55 @@ property.newAnimation(.basic(toValue: 1, duration: 1, timingFunction: .easeOut))
 
 ```
 
+#### So what's different?
+
+- When defining an animatable property, we get type safety. `ReadWriteProperty<Object: NSObject>` uses Swift's generics to allow us to expose a concrete type rather than `AnyObject!` in the read and write blocks. No more `as!` runtime prayers.
+
+	```swift 
+	// PopSwift
+	let property = ReadWriteProperty(in: propertyOwner)
+		.read {  $1 = $0.property }
+		.write { $0.property = $1 }
+	```
+	
+	vs
+	
+	```swift
+	// Vanilla pop
+	let animatableProperty = POPAnimatableProperty.propertyWithName("property") { property in
+		property.readBlock = { $1[0] = ($0 as! PropertyOwner).property }
+		property.writeBlock = { ($0 as! PropertyOwner).property = $1[0] }
+	}
+	```
+
+- Trailing closure syntax. It's awesome and we should use it right? We believe that
+
+	```swift
+	// PopSwift
+	property.newAnimation(.basic(toValue: 1, duration: 1, timingFunction: .easeOut))
+		.onApply { print("property is now \(property)!") }
+		.onComplete { completed in print(completed ? "🐥" : "🐣") }
+		.start()
+	```
+
+	reads better and clearer than 
+
+	```swift
+	// Vanilla pop
+	let animation = POPBasicAnimation(propertyNamed: "property_animation")
+	animation.toValue = 1
+	animation.duration = 1
+	animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+
+	animation.animationDidApplyBlock = { _ in print("property is now \(property)!") }
+	animation.completionBlock = { _, completed in print(completed ? "🐥" : "🐣") }
+
+	animation.property = animatableProperty
+	propertyOwner.pop_addAnimation(animation, forKey: "🔑")
+	```
+
+	and is more concise to boot!
+
 # Installation (Carthage)
 Add this to your Cartfile:
 
