@@ -60,7 +60,7 @@ public extension CAMediaTimingFunction {
         getControlPointAtIndex(2, values: &cps[2])
         getControlPointAtIndex(3, values: &cps[3])
         
-        let asCGFloats = cps.map(CGFloat.init)
+        let asCGFloats = cps.map { CGFloat($0) }
         return (asCGFloats[0], asCGFloats[1], asCGFloats[2], asCGFloats[3])
     }
 }

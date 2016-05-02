@@ -10,6 +10,7 @@ import Foundation
 
 import pop
 
+/// An `AnimationSpec` (Spec is short for Specification) encapsulates all properties that defines how an animation should run it's course.
 public enum AnimationSpec {
     
     /// A basic animation spec, following a fixed curve and with a predefined duration.
@@ -46,38 +47,5 @@ public extension AnimationSpec {
     
         return .decay(initialVelocity: initialVelocity,
                       damping: 0.998)
-    }
-}
-
-extension AnimationSpec {
-    
-    func popAnimationWithProperty(property: POPAnimatableProperty) -> POPAnimation {
-        
-        switch self {
-            
-        case let .basic(toValue, duration, timingFunction):
-            let animation = POPBasicAnimation()
-            animation.property = property
-            animation.toValue = toValue
-            animation.duration = duration
-            animation.timingFunction = CAMediaTimingFunction(timingFunction)
-            return animation
-            
-        case let .spring(toValue, initialVelocity, springBounciness, springSpeed):
-            let animation = POPSpringAnimation()
-            animation.property = property
-            animation.toValue = toValue
-            animation.velocity = initialVelocity
-            animation.springBounciness = springBounciness
-            animation.springSpeed = springSpeed
-            return animation
-            
-        case let .decay(initialVelocity, damping):
-            let animation = POPDecayAnimation()
-            animation.property = property
-            animation.velocity = initialVelocity
-            animation.deceleration = damping
-            return animation
-        }
     }
 }
