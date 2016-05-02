@@ -93,8 +93,7 @@
 				2ADEB1691C82407E003559C4 /* ReadWriteProperty.swift */,
 				2ADEB16D1C82407E003559C4 /* TimingFunction.swift */,
 			);
-			name = Source;
-			path = PopSwift;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		2ADEB15B1C824042003559C4 /* Tests */ = {
@@ -104,7 +103,7 @@
 				2ADEB15E1C824042003559C4 /* Info.plist */,
 			);
 			name = Tests;
-			path = PopSwiftTests;
+			path = fizzyTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,7 +344,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = PopSwift/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -368,7 +367,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = PopSwift/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
