@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:PopSwift.xcodeproj">
+      location = "self:/Users/JLT2/Desktop/PopSwift/fizzy.xcodeproj">
    </FileRef>
 </Workspace>

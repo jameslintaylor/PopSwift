@@ -1,6 +1,6 @@
 //
 //  Animation.swift
-//  PopSwift
+//  fizzy
 //
 //  Created by James Taylor on 2016-04-28.
 //  Copyright © 2016 James Taylor. All rights reserved.
@@ -10,8 +10,7 @@ import Foundation
 
 import pop
 
-/// Wrapper around PopAnimation exposing some functions
-/// promoting chaining with trailing closure syntax at the call site.
+/// Wrapper around `POPAnimation` exposing some functions promoting chaining with trailing closure syntax at the call site.
 public struct Animation {
     
     public let wrapped: POPAnimation

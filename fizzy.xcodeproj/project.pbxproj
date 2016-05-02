@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2A54411A1C824163006CE66C /* pop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5441191C824163006CE66C /* pop.framework */; };
-		2ADEB1511C824042003559C4 /* PopSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ADEB1501C824042003559C4 /* PopSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2ADEB1581C824042003559C4 /* PopSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADEB14D1C824042003559C4 /* PopSwift.framework */; };
-		2ADEB15D1C824042003559C4 /* PopSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEB15C1C824042003559C4 /* PopSwiftTests.swift */; };
+		2ADEB1511C824042003559C4 /* fizzy.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ADEB1501C824042003559C4 /* fizzy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2ADEB1581C824042003559C4 /* fizzy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADEB14D1C824042003559C4 /* fizzy.framework */; };
+		2ADEB15D1C824042003559C4 /* fizzyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEB15C1C824042003559C4 /* fizzyTests.swift */; };
 		2ADEB16E1C82407E003559C4 /* ReadWriteProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEB1691C82407E003559C4 /* ReadWriteProperty.swift */; };
 		2ADEB1721C82407E003559C4 /* TimingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEB16D1C82407E003559C4 /* TimingFunction.swift */; };
 		A9CBA18C1CD30B3F004F1439 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CBA18B1CD30B3F004F1439 /* Animation.swift */; };
@@ -30,11 +30,11 @@
 
 /* Begin PBXFileReference section */
 		2A5441191C824163006CE66C /* pop.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = pop.framework; path = Carthage/Build/iOS/pop.framework; sourceTree = "<group>"; };
-		2ADEB14D1C824042003559C4 /* PopSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PopSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2ADEB1501C824042003559C4 /* PopSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopSwift.h; sourceTree = "<group>"; };
+		2ADEB14D1C824042003559C4 /* fizzy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = fizzy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ADEB1501C824042003559C4 /* fizzy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fizzy.h; sourceTree = "<group>"; };
 		2ADEB1521C824042003559C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2ADEB1571C824042003559C4 /* PopSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2ADEB15C1C824042003559C4 /* PopSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopSwiftTests.swift; sourceTree = "<group>"; };
+		2ADEB1571C824042003559C4 /* fizzy.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fizzy.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ADEB15C1C824042003559C4 /* fizzyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fizzyTests.swift; sourceTree = "<group>"; };
 		2ADEB15E1C824042003559C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ADEB1691C82407E003559C4 /* ReadWriteProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadWriteProperty.swift; sourceTree = "<group>"; };
 		2ADEB16D1C82407E003559C4 /* TimingFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimingFunction.swift; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2ADEB1581C824042003559C4 /* PopSwift.framework in Frameworks */,
+				2ADEB1581C824042003559C4 /* fizzy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,8 +67,8 @@
 			isa = PBXGroup;
 			children = (
 				2A5441191C824163006CE66C /* pop.framework */,
-				2ADEB14F1C824042003559C4 /* PopSwift */,
-				2ADEB15B1C824042003559C4 /* PopSwiftTests */,
+				2ADEB14F1C824042003559C4 /* Source */,
+				2ADEB15B1C824042003559C4 /* Tests */,
 				2ADEB14E1C824042003559C4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,16 +76,16 @@
 		2ADEB14E1C824042003559C4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2ADEB14D1C824042003559C4 /* PopSwift.framework */,
-				2ADEB1571C824042003559C4 /* PopSwiftTests.xctest */,
+				2ADEB14D1C824042003559C4 /* fizzy.framework */,
+				2ADEB1571C824042003559C4 /* fizzy.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2ADEB14F1C824042003559C4 /* PopSwift */ = {
+		2ADEB14F1C824042003559C4 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				2ADEB1501C824042003559C4 /* PopSwift.h */,
+				2ADEB1501C824042003559C4 /* fizzy.h */,
 				2ADEB1521C824042003559C4 /* Info.plist */,
 				A9CBA18B1CD30B3F004F1439 /* Animation.swift */,
 				A9CBA18D1CD30B64004F1439 /* AnimationSpec.swift */,
@@ -93,15 +93,17 @@
 				2ADEB1691C82407E003559C4 /* ReadWriteProperty.swift */,
 				2ADEB16D1C82407E003559C4 /* TimingFunction.swift */,
 			);
+			name = Source;
 			path = PopSwift;
 			sourceTree = "<group>";
 		};
-		2ADEB15B1C824042003559C4 /* PopSwiftTests */ = {
+		2ADEB15B1C824042003559C4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				2ADEB15C1C824042003559C4 /* PopSwiftTests.swift */,
+				2ADEB15C1C824042003559C4 /* fizzyTests.swift */,
 				2ADEB15E1C824042003559C4 /* Info.plist */,
 			);
+			name = Tests;
 			path = PopSwiftTests;
 			sourceTree = "<group>";
 		};
@@ -112,16 +114,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2ADEB1511C824042003559C4 /* PopSwift.h in Headers */,
+				2ADEB1511C824042003559C4 /* fizzy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2ADEB14C1C824042003559C4 /* PopSwift */ = {
+		2ADEB14C1C824042003559C4 /* fizzy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2ADEB1611C824042003559C4 /* Build configuration list for PBXNativeTarget "PopSwift" */;
+			buildConfigurationList = 2ADEB1611C824042003559C4 /* Build configuration list for PBXNativeTarget "fizzy" */;
 			buildPhases = (
 				2ADEB1481C824042003559C4 /* Sources */,
 				2ADEB1491C824042003559C4 /* Frameworks */,
@@ -132,14 +134,14 @@
 			);
 			dependencies = (
 			);
-			name = PopSwift;
+			name = fizzy;
 			productName = PopSwift;
-			productReference = 2ADEB14D1C824042003559C4 /* PopSwift.framework */;
+			productReference = 2ADEB14D1C824042003559C4 /* fizzy.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		2ADEB1561C824042003559C4 /* PopSwiftTests */ = {
+		2ADEB1561C824042003559C4 /* fizzyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2ADEB1641C824042003559C4 /* Build configuration list for PBXNativeTarget "PopSwiftTests" */;
+			buildConfigurationList = 2ADEB1641C824042003559C4 /* Build configuration list for PBXNativeTarget "fizzyTests" */;
 			buildPhases = (
 				2ADEB1531C824042003559C4 /* Sources */,
 				2ADEB1541C824042003559C4 /* Frameworks */,
@@ -150,9 +152,9 @@
 			dependencies = (
 				2ADEB15A1C824042003559C4 /* PBXTargetDependency */,
 			);
-			name = PopSwiftTests;
+			name = fizzyTests;
 			productName = PopSwiftTests;
-			productReference = 2ADEB1571C824042003559C4 /* PopSwiftTests.xctest */;
+			productReference = 2ADEB1571C824042003559C4 /* fizzy.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -173,7 +175,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2ADEB1471C824041003559C4 /* Build configuration list for PBXProject "PopSwift" */;
+			buildConfigurationList = 2ADEB1471C824041003559C4 /* Build configuration list for PBXProject "fizzy" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -185,8 +187,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2ADEB14C1C824042003559C4 /* PopSwift */,
-				2ADEB1561C824042003559C4 /* PopSwiftTests */,
+				2ADEB14C1C824042003559C4 /* fizzy */,
+				2ADEB1561C824042003559C4 /* fizzyTests */,
 			);
 		};
 /* End PBXProject section */
@@ -225,7 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2ADEB15D1C824042003559C4 /* PopSwiftTests.swift in Sources */,
+				2ADEB15D1C824042003559C4 /* fizzyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,7 +236,7 @@
 /* Begin PBXTargetDependency section */
 		2ADEB15A1C824042003559C4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2ADEB14C1C824042003559C4 /* PopSwift */;
+			target = 2ADEB14C1C824042003559C4 /* fizzy */;
 			targetProxy = 2ADEB1591C824042003559C4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -348,7 +350,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jameslintaylor.PopSwift;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = fizzy;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -371,7 +373,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jameslintaylor.PopSwift;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = fizzy;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -382,7 +384,7 @@
 				INFOPLIST_FILE = PopSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jameslintaylor.PopSwiftTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = fizzy;
 			};
 			name = Debug;
 		};
@@ -392,14 +394,14 @@
 				INFOPLIST_FILE = PopSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jameslintaylor.PopSwiftTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = fizzy;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2ADEB1471C824041003559C4 /* Build configuration list for PBXProject "PopSwift" */ = {
+		2ADEB1471C824041003559C4 /* Build configuration list for PBXProject "fizzy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2ADEB15F1C824042003559C4 /* Debug */,
@@ -408,7 +410,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2ADEB1611C824042003559C4 /* Build configuration list for PBXNativeTarget "PopSwift" */ = {
+		2ADEB1611C824042003559C4 /* Build configuration list for PBXNativeTarget "fizzy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2ADEB1621C824042003559C4 /* Debug */,
@@ -417,7 +419,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2ADEB1641C824042003559C4 /* Build configuration list for PBXNativeTarget "PopSwiftTests" */ = {
+		2ADEB1641C824042003559C4 /* Build configuration list for PBXNativeTarget "fizzyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2ADEB1651C824042003559C4 /* Debug */,

@@ -1,6 +1,6 @@
 //
 //  Animatable.swift
-//  PopSwift
+//  fizzy
 //
 //  Created by James Taylor on 2016-04-23.
 //  Copyright © 2016 James Taylor. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  AnimatableProperty.swift
-//  Zeno
+//  fizzy
 //
 //  Created by James Taylor on 2016-02-26.
 //  Copyright © 2016 James Taylor. All rights reserved.

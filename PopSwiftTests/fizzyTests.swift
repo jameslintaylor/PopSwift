@@ -1,6 +1,5 @@
 //
-//  PopSwiftTests.swift
-//  PopSwiftTests
+//  fizzyTests.swift
 //
 //  Created by James Taylor on 2016-02-27.
 //  Copyright © 2016 James Taylor. All rights reserved.
