@@ -2,8 +2,6 @@
 
 [facebook/pop](https://github.com/facebook/pop) is awesome, and it could be even more awesome in Swift. PopSwift is all about making that happen ☺️.
 
----
-
 # Usage
 
 ## Animating custom properties
