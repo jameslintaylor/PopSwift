@@ -1,4 +1,4 @@
-# fizzy (pop)  - *wrapping facebook's pop framework for happy use in Swift* 
+# fizzy (pop)  - *wrapping [pop](https://github.com/facebook/pop) for happy use in Swift* 
 
 [facebook/pop](https://github.com/facebook/pop) is awesome, and it could be even more awesome in Swift. PopSwift is all about making that happen ☺️.
 
@@ -175,10 +175,10 @@ property.newAnimation(.basic(toValue: 1, duration: 1, timingFunction: .easeOut))
 
 	and is more concise to boot!
 
-# Installation (Carthage)
-Add this to your Cartfile:
+# Installation ([Carthage](https://github.com/Carthage/Carthage))
+
+Add this to your `Cartfile`:
 
 ```
 github "jameslintaylor/fizzy"
 ```
-
