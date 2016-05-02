@@ -10,17 +10,17 @@ import Foundation
 
 import pop
 
-/// Mostly a wrapper around PopAnimation exposing some functions
+/// Wrapper around PopAnimation exposing some functions
 /// promoting chaining with trailing closure syntax at the call site.
 public struct Animation {
     
-    private let popAnimation: POPAnimation
+    public let wrapped: POPAnimation
     
     private let toStart: () -> ()
     private let toCancel: () -> ()
     
     init(popAnimation: POPAnimation, toStart: () -> (), toCancel: () -> ()) {
-        self.popAnimation = popAnimation
+        self.wrapped = popAnimation
         self.toStart = toStart
         self.toCancel = toCancel
     }
@@ -29,17 +29,17 @@ public struct Animation {
 public extension Animation {
     
     func onApply(onApply: () -> ()) -> Animation {
-        popAnimation.animationDidApplyBlock = { _ in onApply() }
+        wrapped.animationDidApplyBlock = { _ in onApply() }
         return self
     }
     
     func onComplete(onComplete: () -> ()) -> Animation {
-        popAnimation.completionBlock = { _ in onComplete() }
+        wrapped.completionBlock = { _ in onComplete() }
         return self
     }
     
     func onReachedToValue(closure: () -> ()) -> Animation {
-        popAnimation.animationDidReachToValueBlock = { _ in closure() }
+        wrapped.animationDidReachToValueBlock = { _ in closure() }
         return self
     }
     
