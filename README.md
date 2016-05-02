@@ -26,7 +26,7 @@ let animatableProperty = POPAnimatableProperty.propertyWithName("property") { pr
 }
 
 // Create an animation 
-let animation = POPBasicAnimation(propertyNamed: "property_animation")
+let animation = POPBasicAnimation()
 animation.toValue = 1
 animation.duration = 1
 animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
@@ -98,7 +98,7 @@ let animatableProperty = POPAnimatableProperty.propertyWithName("property") { pr
 	property.writeBlock = { ($0 as! PropertyOwner).property = $1[0] }
 }
 
-let animation = POPBasicAnimation(propertyNamed: "property_animation")
+let animation = POPBasicAnimation()
 animation.toValue = 1
 animation.duration = 1
 animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
@@ -161,7 +161,7 @@ property.newAnimation(.basic(toValue: 1, duration: 1, timingFunction: .easeOut))
 
 	```swift
 	// pop
-	let animation = POPBasicAnimation(propertyNamed: "property_animation")
+	let animation = POPBasicAnimation()
 	animation.toValue = 1
 	animation.duration = 1
 	animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
