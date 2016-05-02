@@ -5,7 +5,7 @@
 # Usage
 
 ### Animating custom properties
-One awesome thing about [facebook/pop](https://github.com/facebook/pop) is the ability to animate any `CGFloat` property on any `NSObject`. These next few examples highlight how we might animate a custom `property` on a `PropertyOwner` object.
+One awesome thing about [facebook/pop](https://github.com/facebook/pop) is the ability to animate any property on any `NSObject`. These next few examples highlight how we might animate a custom `property` on a `PropertyOwner` object.
 
 #### pop 
 
