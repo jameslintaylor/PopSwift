@@ -1,4 +1,4 @@
-# PopSwift - *wrapping facebook's pop framework for more pleasant use in Swift* 
+# PopSwift - *wrapping facebook's pop framework for happy use in Swift* 
 
 [facebook/pop](https://github.com/facebook/pop) is awesome, and it could be even more awesome in Swift. PopSwift is all about making that happen ☺️.
 
