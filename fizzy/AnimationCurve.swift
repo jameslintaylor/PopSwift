@@ -1,5 +1,5 @@
 //
-//  TimingFunction.swift
+//  AnimationCurve.swift
 //  fizzy
 //
 //  Created by James Taylor on 2016-02-26.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public enum TimingFunction {
+public enum AnimationCurve {
     
     case cool
     case linear
@@ -18,7 +18,7 @@ public enum TimingFunction {
     case custom(x1: CGFloat, y1: CGFloat, x2: CGFloat, y2: CGFloat)
 }
 
-public extension TimingFunction {
+public extension AnimationCurve {
     
     init(_ timingFunction: CAMediaTimingFunction) {
         
@@ -35,10 +35,10 @@ public extension TimingFunction {
 
 public extension CAMediaTimingFunction {
     
-    convenience init(_ timingFunction: TimingFunction) {
+    convenience init(_ curve: AnimationCurve) {
         
         // These values thanks to <http://netcetera.org/camtf-playground.html>
-        switch timingFunction {
+        switch curve {
         case .cool: self.init(controlPoints: 0.25, 0.1, 0.25, 1)
         case .linear: self.init(controlPoints: 0, 0, 1, 1)
         case .easeIn: self.init(controlPoints: 0.42, 0, 1, 1)

@@ -14,7 +14,7 @@ import pop
 public enum AnimationSpec {
     
     /// A basic animation spec, following a fixed curve and with a predefined duration.
-    case basic(toValue: CGFloat, duration: CFTimeInterval, timingFunction: TimingFunction)
+    case basic(toValue: CGFloat, duration: CFTimeInterval, curve: AnimationCurve)
     
     /// A super awesome springy animation spec with parameters for tweaking behaviour of the spring.
     case spring(toValue: CGFloat, initialVelocity: CGFloat, springBounciness: CGFloat, springSpeed: CGFloat)
@@ -25,12 +25,12 @@ public enum AnimationSpec {
     
 public extension AnimationSpec {
     
-    /// Creates a generic `basic` spec using default value `cool` for `timingFunction`.
+    /// Creates a generic `basic` spec using default value `cool` for `curve`.
     static func generic(toValue toValue: CGFloat, duration: CFTimeInterval) -> AnimationSpec {
         
         return .basic(toValue: toValue,
                       duration: duration,
-                      timingFunction: .cool)
+                      curve: .cool)
     }
     
     /// Creates a generic `spring` spec using default values for 12 and 4 for `springBounciness` and `springSpeed` respectively.

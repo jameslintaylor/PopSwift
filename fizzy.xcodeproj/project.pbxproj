@@ -12,7 +12,7 @@
 		2ADEB1581C824042003559C4 /* fizzy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ADEB14D1C824042003559C4 /* fizzy.framework */; };
 		2ADEB15D1C824042003559C4 /* fizzyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEB15C1C824042003559C4 /* fizzyTests.swift */; };
 		2ADEB16E1C82407E003559C4 /* ReadWriteProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEB1691C82407E003559C4 /* ReadWriteProperty.swift */; };
-		2ADEB1721C82407E003559C4 /* TimingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEB16D1C82407E003559C4 /* TimingFunction.swift */; };
+		2ADEB1721C82407E003559C4 /* AnimationCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEB16D1C82407E003559C4 /* AnimationCurve.swift */; };
 		A9CBA18C1CD30B3F004F1439 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CBA18B1CD30B3F004F1439 /* Animation.swift */; };
 		A9CBA18E1CD30B64004F1439 /* AnimationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CBA18D1CD30B64004F1439 /* AnimationSpec.swift */; };
 		A9F89EF41CCB4BAD00324004 /* Animatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F89EF31CCB4BAD00324004 /* Animatable.swift */; };
@@ -37,7 +37,7 @@
 		2ADEB15C1C824042003559C4 /* fizzyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fizzyTests.swift; sourceTree = "<group>"; };
 		2ADEB15E1C824042003559C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ADEB1691C82407E003559C4 /* ReadWriteProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadWriteProperty.swift; sourceTree = "<group>"; };
-		2ADEB16D1C82407E003559C4 /* TimingFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimingFunction.swift; sourceTree = "<group>"; };
+		2ADEB16D1C82407E003559C4 /* AnimationCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationCurve.swift; sourceTree = "<group>"; };
 		A9CBA18B1CD30B3F004F1439 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		A9CBA18D1CD30B64004F1439 /* AnimationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationSpec.swift; sourceTree = "<group>"; };
 		A9F89EF31CCB4BAD00324004 /* Animatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animatable.swift; sourceTree = "<group>"; };
@@ -67,7 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				2A5441191C824163006CE66C /* pop.framework */,
-				2ADEB14F1C824042003559C4 /* Source */,
+				2ADEB14F1C824042003559C4 /* fizzy */,
 				2ADEB15B1C824042003559C4 /* Tests */,
 				2ADEB14E1C824042003559C4 /* Products */,
 			);
@@ -82,7 +82,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2ADEB14F1C824042003559C4 /* Source */ = {
+		2ADEB14F1C824042003559C4 /* fizzy */ = {
 			isa = PBXGroup;
 			children = (
 				2ADEB1501C824042003559C4 /* fizzy.h */,
@@ -91,9 +91,9 @@
 				A9CBA18D1CD30B64004F1439 /* AnimationSpec.swift */,
 				A9F89EF31CCB4BAD00324004 /* Animatable.swift */,
 				2ADEB1691C82407E003559C4 /* ReadWriteProperty.swift */,
-				2ADEB16D1C82407E003559C4 /* TimingFunction.swift */,
+				2ADEB16D1C82407E003559C4 /* AnimationCurve.swift */,
 			);
-			path = Source;
+			path = fizzy;
 			sourceTree = "<group>";
 		};
 		2ADEB15B1C824042003559C4 /* Tests */ = {
@@ -128,6 +128,7 @@
 				2ADEB1491C824042003559C4 /* Frameworks */,
 				2ADEB14A1C824042003559C4 /* Headers */,
 				2ADEB14B1C824042003559C4 /* Resources */,
+				A929FA4A1CD7FB8D00B3DBDC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -209,12 +210,29 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A929FA4A1CD7FB8D00B3DBDC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/pop.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2ADEB1481C824042003559C4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2ADEB1721C82407E003559C4 /* TimingFunction.swift in Sources */,
+				2ADEB1721C82407E003559C4 /* AnimationCurve.swift in Sources */,
 				A9F89EF41CCB4BAD00324004 /* Animatable.swift in Sources */,
 				A9CBA18C1CD30B3F004F1439 /* Animation.swift in Sources */,
 				2ADEB16E1C82407E003559C4 /* ReadWriteProperty.swift in Sources */,
