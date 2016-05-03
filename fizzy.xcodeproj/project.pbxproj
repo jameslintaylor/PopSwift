@@ -13,6 +13,7 @@
 		2ADEB15D1C824042003559C4 /* fizzyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEB15C1C824042003559C4 /* fizzyTests.swift */; };
 		2ADEB16E1C82407E003559C4 /* ReadWriteProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEB1691C82407E003559C4 /* ReadWriteProperty.swift */; };
 		2ADEB1721C82407E003559C4 /* AnimationCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEB16D1C82407E003559C4 /* AnimationCurve.swift */; };
+		A949D0BF1CD8331900BC6A3A /* CGFloatBufferConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A949D0BE1CD8331900BC6A3A /* CGFloatBufferConvertible.swift */; };
 		A9CBA18C1CD30B3F004F1439 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CBA18B1CD30B3F004F1439 /* Animation.swift */; };
 		A9CBA18E1CD30B64004F1439 /* AnimationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CBA18D1CD30B64004F1439 /* AnimationSpec.swift */; };
 		A9F89EF41CCB4BAD00324004 /* Animatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F89EF31CCB4BAD00324004 /* Animatable.swift */; };
@@ -38,6 +39,7 @@
 		2ADEB15E1C824042003559C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ADEB1691C82407E003559C4 /* ReadWriteProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadWriteProperty.swift; sourceTree = "<group>"; };
 		2ADEB16D1C82407E003559C4 /* AnimationCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationCurve.swift; sourceTree = "<group>"; };
+		A949D0BE1CD8331900BC6A3A /* CGFloatBufferConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloatBufferConvertible.swift; sourceTree = "<group>"; };
 		A9CBA18B1CD30B3F004F1439 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		A9CBA18D1CD30B64004F1439 /* AnimationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationSpec.swift; sourceTree = "<group>"; };
 		A9F89EF31CCB4BAD00324004 /* Animatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animatable.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				A9F89EF31CCB4BAD00324004 /* Animatable.swift */,
 				2ADEB1691C82407E003559C4 /* ReadWriteProperty.swift */,
 				2ADEB16D1C82407E003559C4 /* AnimationCurve.swift */,
+				A949D0BE1CD8331900BC6A3A /* CGFloatBufferConvertible.swift */,
 			);
 			path = fizzy;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				A9F89EF41CCB4BAD00324004 /* Animatable.swift in Sources */,
 				A9CBA18C1CD30B3F004F1439 /* Animation.swift in Sources */,
 				2ADEB16E1C82407E003559C4 /* ReadWriteProperty.swift in Sources */,
+				A949D0BF1CD8331900BC6A3A /* CGFloatBufferConvertible.swift in Sources */,
 				A9CBA18E1CD30B64004F1439 /* AnimationSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,7 +366,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Source/Info.plist;
+				INFOPLIST_FILE = fizzy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -385,7 +389,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Source/Info.plist;
+				INFOPLIST_FILE = fizzy/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

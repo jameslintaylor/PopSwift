@@ -16,7 +16,10 @@ private typealias POPRead = (AnyObject!, UnsafeMutablePointer<CGFloat>) -> ()
 private typealias POPWrite = (AnyObject!, UnsafePointer<CGFloat>) -> ()
 
 /// An structure defining an animatable property of an object.
-public struct ReadWriteProperty<Object: NSObject> {
+public struct ReadWriteProperty<Object: NSObject, Property: CGFloatArrayConvertible> {
+    
+    /// The name of the property
+    public let name: String?
     
     /// The object owner of the property.
     public unowned let owner: Object
@@ -26,7 +29,8 @@ public struct ReadWriteProperty<Object: NSObject> {
     private var popWrite: POPWrite = { _ in }
     
     /// Create a new `ReadWriteProperty` for the given owner.
-    public init(in owner: Object) {
+    public init(name: String? = nil, in owner: Object) {
+        self.name = name
         self.owner = owner
     }
 }
@@ -34,20 +38,30 @@ public struct ReadWriteProperty<Object: NSObject> {
 public extension ReadWriteProperty {
     
     // 🙌
-    public typealias PropertyRead = (Object, inout CGFloat) -> ()
-    public typealias PropertyWrite = (Object, CGFloat) -> ()
+    public typealias PropertyRead = (Object) -> Property
+    public typealias PropertyWrite = (Object, Property) -> ()
     
-    func read(read: PropertyRead) -> ReadWriteProperty<Object> {
+    func read(read: PropertyRead) -> ReadWriteProperty<Object, Property> {
 
         var copy = self
-        copy.popRead = { read($0 as! Object, &$1[0]) }
+        copy.popRead = { any, bufferStart in
+            let property = read(any as! Object)
+            let cgFloats = property.asCGFloats
+            cgFloats.enumerate().forEach { bufferStart[$0] = $1 }
+        }
+        
         return copy
     }
     
-    func write(write: PropertyWrite) -> ReadWriteProperty<Object> {
+    func write(write: PropertyWrite) -> ReadWriteProperty<Object, Property> {
         
         var copy = self
-        copy.popWrite = { write($0 as! Object, $1[0]) }
+        copy.popWrite = { any, bufferStart in
+            let cgFloats = Array(pointer: bufferStart, count: Property.cgFloatCount)
+            let property = Property.init(cgFloats: cgFloats)
+            write(any as! Object, property)
+        }
+        
         return copy
     }
 }
@@ -58,14 +72,24 @@ extension ReadWriteProperty: Animatable {
     
     public var property: POPAnimatableProperty {
         
-        return POPAnimatableProperty.propertyWithName("") {
+        return POPAnimatableProperty.propertyWithName(name) {
             $0.readBlock = self.popRead
             $0.writeBlock = self.popWrite
             $0.threshold = 0.01
-            } as! POPAnimatableProperty
+        } as! POPAnimatableProperty
     }
     
     public var object: NSObject {
         return owner
+    }
+}
+
+// Helpers
+
+private extension Array {
+    
+    init(pointer: UnsafePointer<Element>, count: Int) {
+        let buffer = UnsafeBufferPointer(start: pointer, count: count)
+        self.init(buffer)
     }
 }
