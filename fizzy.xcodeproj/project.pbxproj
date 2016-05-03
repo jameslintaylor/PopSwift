@@ -13,10 +13,11 @@
 		2ADEB15D1C824042003559C4 /* fizzyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEB15C1C824042003559C4 /* fizzyTests.swift */; };
 		2ADEB16E1C82407E003559C4 /* ReadWriteProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEB1691C82407E003559C4 /* ReadWriteProperty.swift */; };
 		2ADEB1721C82407E003559C4 /* AnimationCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ADEB16D1C82407E003559C4 /* AnimationCurve.swift */; };
-		A949D0BF1CD8331900BC6A3A /* CGFloatBufferConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A949D0BE1CD8331900BC6A3A /* CGFloatBufferConvertible.swift */; };
+		A949D0BF1CD8331900BC6A3A /* NSValueConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A949D0BE1CD8331900BC6A3A /* NSValueConvertible.swift */; };
+		A97AB60A1CD859DA00F8529B /* CGFloatsConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97AB6091CD859DA00F8529B /* CGFloatsConvertible.swift */; };
+		A97AB60E1CD85A3700F8529B /* POPAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97AB60D1CD85A3700F8529B /* POPAnimatable.swift */; };
 		A9CBA18C1CD30B3F004F1439 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CBA18B1CD30B3F004F1439 /* Animation.swift */; };
 		A9CBA18E1CD30B64004F1439 /* AnimationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CBA18D1CD30B64004F1439 /* AnimationSpec.swift */; };
-		A9F89EF41CCB4BAD00324004 /* Animatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F89EF31CCB4BAD00324004 /* Animatable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,10 +40,11 @@
 		2ADEB15E1C824042003559C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ADEB1691C82407E003559C4 /* ReadWriteProperty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadWriteProperty.swift; sourceTree = "<group>"; };
 		2ADEB16D1C82407E003559C4 /* AnimationCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationCurve.swift; sourceTree = "<group>"; };
-		A949D0BE1CD8331900BC6A3A /* CGFloatBufferConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloatBufferConvertible.swift; sourceTree = "<group>"; };
+		A949D0BE1CD8331900BC6A3A /* NSValueConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSValueConvertible.swift; sourceTree = "<group>"; };
+		A97AB6091CD859DA00F8529B /* CGFloatsConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloatsConvertible.swift; sourceTree = "<group>"; };
+		A97AB60D1CD85A3700F8529B /* POPAnimatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POPAnimatable.swift; sourceTree = "<group>"; };
 		A9CBA18B1CD30B3F004F1439 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		A9CBA18D1CD30B64004F1439 /* AnimationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationSpec.swift; sourceTree = "<group>"; };
-		A9F89EF31CCB4BAD00324004 /* Animatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animatable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,14 +89,13 @@
 		2ADEB14F1C824042003559C4 /* fizzy */ = {
 			isa = PBXGroup;
 			children = (
+				A97AB6081CD84D3800F8529B /* Convertibles */,
 				2ADEB1501C824042003559C4 /* fizzy.h */,
 				2ADEB1521C824042003559C4 /* Info.plist */,
 				A9CBA18B1CD30B3F004F1439 /* Animation.swift */,
 				A9CBA18D1CD30B64004F1439 /* AnimationSpec.swift */,
-				A9F89EF31CCB4BAD00324004 /* Animatable.swift */,
 				2ADEB1691C82407E003559C4 /* ReadWriteProperty.swift */,
 				2ADEB16D1C82407E003559C4 /* AnimationCurve.swift */,
-				A949D0BE1CD8331900BC6A3A /* CGFloatBufferConvertible.swift */,
 			);
 			path = fizzy;
 			sourceTree = "<group>";
@@ -107,6 +108,16 @@
 			);
 			name = Tests;
 			path = fizzyTests;
+			sourceTree = "<group>";
+		};
+		A97AB6081CD84D3800F8529B /* Convertibles */ = {
+			isa = PBXGroup;
+			children = (
+				A949D0BE1CD8331900BC6A3A /* NSValueConvertible.swift */,
+				A97AB6091CD859DA00F8529B /* CGFloatsConvertible.swift */,
+				A97AB60D1CD85A3700F8529B /* POPAnimatable.swift */,
+			);
+			name = Convertibles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,10 +247,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2ADEB1721C82407E003559C4 /* AnimationCurve.swift in Sources */,
-				A9F89EF41CCB4BAD00324004 /* Animatable.swift in Sources */,
 				A9CBA18C1CD30B3F004F1439 /* Animation.swift in Sources */,
+				A97AB60A1CD859DA00F8529B /* CGFloatsConvertible.swift in Sources */,
 				2ADEB16E1C82407E003559C4 /* ReadWriteProperty.swift in Sources */,
-				A949D0BF1CD8331900BC6A3A /* CGFloatBufferConvertible.swift in Sources */,
+				A97AB60E1CD85A3700F8529B /* POPAnimatable.swift in Sources */,
+				A949D0BF1CD8331900BC6A3A /* NSValueConvertible.swift in Sources */,
 				A9CBA18E1CD30B64004F1439 /* AnimationSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,7 +382,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jameslintaylor.PopSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jameslintaylor.fizzy;
 				PRODUCT_NAME = fizzy;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -393,7 +405,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jameslintaylor.PopSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jameslintaylor.fizzy;
 				PRODUCT_NAME = fizzy;
 				SKIP_INSTALL = YES;
 			};
@@ -402,9 +414,9 @@
 		2ADEB1651C824042003559C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = PopSwiftTests/Info.plist;
+				INFOPLIST_FILE = fizzyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jameslintaylor.PopSwiftTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jameslintaylor.fizzyTests;
 				PRODUCT_NAME = fizzy;
 			};
 			name = Debug;
@@ -412,9 +424,9 @@
 		2ADEB1661C824042003559C4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = PopSwiftTests/Info.plist;
+				INFOPLIST_FILE = fizzyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jameslintaylor.PopSwiftTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jameslintaylor.fizzyTests;
 				PRODUCT_NAME = fizzy;
 			};
 			name = Release;

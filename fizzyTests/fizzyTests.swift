@@ -6,9 +6,9 @@
 //
 
 import XCTest
-@testable import PopSwift
+@testable import fizzy
 
-class PopSwiftTests: XCTestCase {
+class fizzyTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
