@@ -1,6 +1,6 @@
 # fizzy (pop)  - *wrapping [pop](https://github.com/facebook/pop) for happy use in Swift* 
 
-[facebook/pop](https://github.com/facebook/pop) is awesome. Swift gives it the chance to be even more awesome. Let's do this ☺️!
+[facebook/pop](https://github.com/facebook/pop) is awesome, but being designed for Objective-C, it's interface in Swift is sometimes not so awesome... fizzy is all about rectifying this lack of awesome. Awesome
 
 # Usage
 
