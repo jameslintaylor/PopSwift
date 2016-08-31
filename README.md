@@ -1,4 +1,4 @@
-# fizzy (pop)  - *wrapping [pop](https://github.com/facebook/pop) for happy use in Swift* 
+# fizzy (pop)  - *wrapping [pop](https://github.com/facebook/pop) for happy use in swift* 
 
 [facebook/pop](https://github.com/facebook/pop) is awesome, but being designed for Objective-C, it's interface in Swift is sometimes not so awesome... fizzy is all about rectifying this lack of awesome. Awesome
 
